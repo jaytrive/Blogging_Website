@@ -1,5 +1,6 @@
 let container=document.querySelector('.container');
 let main=document.querySelector('.main')
+let modal=document.querySelector('.modal')
 //new modal window created
 function newModal(){
     //form creation
@@ -13,11 +14,13 @@ function newModal(){
     let postText=document.createElement('input')
     postText.placeholder="Enter Your heading...."
     postText.classList.add('inputFields')
+    postText.required=true
 
     let postTextbox=document.createElement('textarea')
     postTextbox.placeholder="Enter Your Blog Post...."
     postTextbox.style.height="180px"
     postTextbox.classList.add('inputFields')
+    postTextbox.required=true
 
     let divBtn=document.createElement('div')
     divBtn.style.display="flex"
@@ -48,11 +51,14 @@ function newModal(){
     divBtn.appendChild(cancelBtn)
     postCreation.appendChild(divBtn)
 
-    container.appendChild(postCreation)
+    modal.appendChild(postCreation)
 
     //publish functionality
     publishBtn.addEventListener('click', function publishPost(){
-        
+        if(postText.value.trim()==="" || postTextbox.value.trim()===""){
+            alert("Fill all required field")
+            return
+        }
         //taking value from text input
         let divEle=document.createElement('div')
         let head=document.createElement('h2')
@@ -68,11 +74,18 @@ function newModal(){
         let delBtn=document.createElement('button')
         delBtn.innerHTML="Delete Post"
 
+        //providing updated time
+        let timedate=new Date().toLocaleString()
+        let dateString=document.createElement('p')
+        dateString.innerText='Created At: '+timedate.substring(0,8)+' at '+timedate.substring(10,15)+timedate.substring(18,21)
+        dateString.classList.add('dateTime')
+        
         //appending elements to main class in form of div
         divEle.appendChild(head)
         divEle.appendChild(blogPost)
         divEle.appendChild(editBtn)
         divEle.appendChild(delBtn)
+        divEle.appendChild(dateString)
         main.appendChild(divEle)
 
         //delete functionality
@@ -85,6 +98,7 @@ function newModal(){
             if(bool==true){
                 divEle.remove()
                 postCreation.style.display="none"
+                container.classList.remove('hide')
             }
         }
 
@@ -108,20 +122,30 @@ function newModal(){
             publishBtn.replaceWith(saveBtn)
             cancelBtn.replaceWith(del2Btn)
 
-            saveBtn.addEventListener('click',function sacePost(){
+            saveBtn.addEventListener('click',function savePost(){
+                if(postText.value.trim()==="" || postTextbox.value.trim()===""){
+                    alert("Fill all required field")
+                    return
+                }
                 head.innerText=postText.value
                 blogPost.innerText=postTextbox.value
                 postCreation.style.display="none"
+                container.classList.remove('hide')
             })
             del2Btn.addEventListener('click',deletePost)
+            container.classList.add('hide')
         })
+
+        container.classList.remove('hide')
     })
     //cancel button functionality
     cancelBtn.addEventListener('click',function cancelPost(){
         postCreation.style.display="none"
+        container.classList.remove('hide')
     })
     //close button functionality
     closeBtn.addEventListener('click',function closePost(){
         postCreation.style.display="none"
+        container.classList.remove('hide')
     })
 }

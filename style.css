@@ -75,6 +75,8 @@
     margin-bottom: 1.5vh;
 }
 .hide{
-    opacity: .4;
-    filter: alpha(opacity = 50);
+    opacity: .8;
+}
+.dateTime{
+    text-align: end;
 }
