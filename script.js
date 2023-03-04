@@ -1,9 +1,13 @@
 let container=document.querySelector('.container');
 let main=document.querySelector('.main')
-let modal=document.querySelector('.modal')
+//let modal=document.querySelector('.modal')
 //new modal window created
 function newModal(){
     //form creation
+    let modal =document.createElement('div')
+    modal.classList.add('modal')
+    document.body.appendChild(modal)
+
     container.classList.add('hide')
     let postCreation=document.createElement('form');
     postCreation.classList.add('newPost');
@@ -99,6 +103,7 @@ function newModal(){
                 divEle.remove()
                 postCreation.style.display="none"
                 container.classList.remove('hide')
+                modal.classList.remove('modal')
             }
         }
 
@@ -127,25 +132,32 @@ function newModal(){
                     alert("Fill all required field")
                     return
                 }
+                let timedate2=new Date().toLocaleString()
+                dateString.innerText='Updated At: '+timedate2.substring(0,8)+' at '+timedate2.substring(10,15)+timedate2.substring(18,21)
                 head.innerText=postText.value
                 blogPost.innerText=postTextbox.value
                 postCreation.style.display="none"
                 container.classList.remove('hide')
+                modal.classList.remove('modal')
             })
             del2Btn.addEventListener('click',deletePost)
             container.classList.add('hide')
+            modal.classList.add('modal')
         })
 
         container.classList.remove('hide')
+        modal.classList.remove('modal')
     })
     //cancel button functionality
     cancelBtn.addEventListener('click',function cancelPost(){
         postCreation.style.display="none"
         container.classList.remove('hide')
+        modal.classList.remove('modal')
     })
     //close button functionality
     closeBtn.addEventListener('click',function closePost(){
         postCreation.style.display="none"
         container.classList.remove('hide')
+        modal.classList.remove('modal')
     })
 }

@@ -9,7 +9,6 @@
 .container{
     height: 100vh;
     background-color: #111111;
-    
 }
 .navbar{
     background-color: #1E1E1E;
@@ -40,7 +39,7 @@
     left: 16%;
     transform: translate(-11%);
     background-color: #E3E3E3;
-    z-index: 1;
+    z-index: 10;
     padding: 2vh 4vw;
     display: flex;
     flex-direction: column;
@@ -79,4 +78,11 @@
 }
 .dateTime{
     text-align: end;
+}
+.modal{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
