@@ -1,0 +1,80 @@
+
+/*  viewport height and width implemented in most of the dimensions
+    to achieve responsiveness */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    height: 100vh;
+    background-color: #111111;
+    
+}
+.navbar{
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    height: 5vh;
+}
+.navbar span{
+    margin-left: 2vw;
+    line-height: 2.2;
+}
+.navbar button{
+    position: absolute;
+    color: #FFFFFF;
+    background-color: #1E1E1E;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    right: 15px;
+    top: 5px;
+}
+.main{
+    padding: 4vh 2vw;
+}
+.newPost{
+    width: 80vw;
+    height: 50vh;
+    position: absolute;
+    top: 20vh;
+    left: 16%;
+    transform: translate(-11%);
+    background-color: #E3E3E3;
+    z-index: 1;
+    padding: 2vh 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.inputFields{
+    border: 1px solid #000000;
+    padding: 10px;
+}
+.material-symbols-outlined{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    border: none;
+    background-color: #E3E3E3;
+}
+.main h2, .main p{
+    color: #FFFFFF;
+    margin-bottom: 1.5vw;
+}
+.main div{
+    padding: 1.5vh 2vw;
+    border: 1px solid #FFFFFF;
+    margin-bottom: 3vh;
+}
+.main button{
+    color: #FFFFFF;
+    background-color: #111111;
+    border: 1px solid #FFFFFF;
+    padding: 5px 2.5vw;
+    margin-right: 2vw;
+    margin-bottom: 1.5vh;
+}
+.hide{
+    opacity: .4;
+    filter: alpha(opacity = 50);
+}
