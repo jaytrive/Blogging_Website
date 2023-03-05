@@ -5,10 +5,10 @@
 *{
     margin: 0;
     padding: 0;
+    background-color: #000000;
 }
 .container{
     height: 100vh;
-    background-color: #111111;
 }
 .navbar{
     background-color: #1E1E1E;
@@ -47,6 +47,7 @@
 }
 .inputFields{
     border: 1px solid #000000;
+    background-color: #FFFFFF;
     padding: 10px;
 }
 .material-symbols-outlined{
@@ -67,20 +68,21 @@
 }
 .main button{
     color: #FFFFFF;
-    background-color: #111111;
     border: 1px solid #FFFFFF;
     padding: 5px 2.5vw;
     margin-right: 2vw;
     margin-bottom: 1.5vh;
 }
 .hide{
-    opacity: .8;
+    opacity: .5;
 }
 .dateTime{
+    color: #867777 !important;
     text-align: end;
 }
 .modal{
     position: absolute;
+    opacity: .4;
     top: 0;
     bottom: 0;
     left: 0;

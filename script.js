@@ -1,18 +1,20 @@
 let container=document.querySelector('.container');
 let main=document.querySelector('.main')
-//let modal=document.querySelector('.modal')
+let display=document.querySelector('.display')
 //new modal window created
 function newModal(){
-    //form creation
+    //creating modal element to to disable container functionality
     let modal =document.createElement('div')
     modal.classList.add('modal')
     document.body.appendChild(modal)
 
+    //form creation
     container.classList.add('hide')
     let postCreation=document.createElement('form');
     postCreation.classList.add('newPost');
 
     let header=document.createElement('h2')
+    header.style.backgroundColor="#E3E3E3"
     header.innerText="Create A Post"
 
     let postText=document.createElement('input')
@@ -28,6 +30,7 @@ function newModal(){
 
     let divBtn=document.createElement('div')
     divBtn.style.display="flex"
+    divBtn.style.backgroundColor="#E3E3E3"
     divBtn.style.gap="30px"
 
     let publishBtn=document.createElement('button')
@@ -55,7 +58,7 @@ function newModal(){
     divBtn.appendChild(cancelBtn)
     postCreation.appendChild(divBtn)
 
-    modal.appendChild(postCreation)
+    display.appendChild(postCreation)
 
     //publish functionality
     publishBtn.addEventListener('click', function publishPost(){
@@ -127,6 +130,7 @@ function newModal(){
             publishBtn.replaceWith(saveBtn)
             cancelBtn.replaceWith(del2Btn)
 
+            //save button functionality
             saveBtn.addEventListener('click',function savePost(){
                 if(postText.value.trim()==="" || postTextbox.value.trim()===""){
                     alert("Fill all required field")
